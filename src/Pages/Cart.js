@@ -6,8 +6,8 @@ function Cart() {
     const CartItem=useSelector(state=>state.cart)
     const dispatch=useDispatch()
 
-    const handleRemove=(item)=>{
-        dispatch(remove(item))
+    const handleRemove=(index)=>{
+        dispatch(remove(index))
     }
 
   return (
@@ -22,7 +22,7 @@ function Cart() {
 
                         <h2 className="card-title">{item.title}</h2>
                         <div className="card-content"> $ {item.price}</div>
-                        <button className="btn btn-warning" onClick={()=>handleRemove(item)}>delete</button>
+                        <button className="btn btn-warning" onClick={()=>handleRemove(index)}>delete</button>
                     </div>
                 </div>
             ))
