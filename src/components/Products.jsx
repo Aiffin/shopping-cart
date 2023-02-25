@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../features/cartSlice';
 import {createProduct} from '../features/productSlice'
+import { NavLink } from 'react-router-dom';
 
 function Products() {
 
@@ -22,8 +23,8 @@ function Products() {
         <div className="container">
             <div className="row">
                     
-                        {product.loading && <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        {product.loading && <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>}
                         {!product.loading && product.error ? <div>Error:{product.error}</div>:null}
                         {!product.loading && product.data.length ? (
@@ -37,7 +38,9 @@ function Products() {
                                 <h5 className="card-title">{item.title}</h5>
                                     <p>{item.category}</p>
                                     <div className="card-content"> $ {item.price}</div>
-                                    <button onClick={()=>handleAdd(item)} className="btn btn-primary " >Add Cart</button>
+                                    <button onClick={()=>handleAdd(item)} className="btn btn-primary " >Add Cart</button><br></br>
+                                    <NavLink to={`/singleProduct/${item.id}`} className="btn btn-primary " >Detail</NavLink>
+
                                 </div>
                             </div>
                         

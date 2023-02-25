@@ -2,6 +2,7 @@ import Products from "./components/Products";
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import Nav from "./components/Nav";
 import Cart from "./Pages/Cart";
+import SingleProduct from "./components/SingleProduct";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Nav/>
       <Routes>
         <Route path={`/`} exact element={<Products/>} />
+        <Route path={`/singleProduct/:id`} element={<SingleProduct/>}/>
         <Route path={`/cart`} element={<Cart/>}/>
       </Routes>
     </Router>
