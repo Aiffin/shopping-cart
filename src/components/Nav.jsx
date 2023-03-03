@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+
 function Nav() {
-  const CartItem=useSelector(state=>state.cart)
+  const {cartTotalQuantity}=useSelector(state=>state.cart)
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
@@ -19,7 +21,7 @@ function Nav() {
         <li className="nav-item">
           <NavLink to={`/cart`} className="nav-link">Cart</NavLink>
         </li>
-        <li className="nav-item">Cart-item:{CartItem.length}</li>
+        <li className="nav-item">Cart-item:{cartTotalQuantity}</li>
       </ul>
     </div>
   </div>

@@ -3,11 +3,12 @@ import React,{useState,useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../features/cartSlice';
 import {createProduct} from '../features/productSlice'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 
 function Products() {
 
     const dispatch=useDispatch()
+    const navigate = useNavigate()
     const product=useSelector((state)=>state.product)
    
     useEffect(()=>{
@@ -16,6 +17,7 @@ function Products() {
 
     const handleAdd=(item)=>{
         dispatch(add(item))
+        navigate.push("/cart")
     }
 
   return (
